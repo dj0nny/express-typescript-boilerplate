@@ -1,8 +1,15 @@
-import express, { Application, urlencoded } from 'express';
+import express, { Application } from 'express';
+
+import errorMiddleware from './middleware/error.middleware';
+import apiRoute from './routes';
 
 const app: Application = express();
 
 app.use(express.json());
-app.use(urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true }));
+
+app.use('/api', apiRoute);
+
+app.use(errorMiddleware);
 
 export default app;
