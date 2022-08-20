@@ -1,4 +1,8 @@
+import { config } from 'dotenv';
+
 import app from './app';
+
+config();
 
 const port: number | string = process.env.PORT || 5896;
 
